@@ -45,8 +45,8 @@ stages:
       size: 961
     - path: src/models/predict_model.py
       hash: md5
-      md5: 6d541af9c55a473b407301f5a22cc023
-      size: 2504
+      md5: 1f9f142583bff3e4203573514e604c4c
+      size: 24
     outs:
     - path: data/predictions/predicted_fares.csv
       hash: md5
