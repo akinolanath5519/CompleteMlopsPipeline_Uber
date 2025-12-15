@@ -1,0 +1,9 @@
+[core]
+    remote = storage
+['remote "storage"']
+    url = https://dagshub.com/akinolanathaniel3026/completemlopspipeline.dvc
+['remote "origin"']
+    url = https://dagshub.com/akinolanathaniel3026/completemlopspipeline.dvc
+    auth = basic
+    user = akinolanathaniel3026
+    password = 74b555d6eea47fb3b85eefe773014bf5e81e20b4
