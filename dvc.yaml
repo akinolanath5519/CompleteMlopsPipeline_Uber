@@ -1,0 +1,25 @@
+stages:
+  build_features:
+    cmd: python src/features/build_features.py
+    deps:
+      - src/features/build_features.py
+      - data/raw/taxi_fares.csv
+    outs:
+      - data/features/features_taxi_fares.csv
+
+  train_model:
+    cmd: python src/models/train_model.py
+    deps:
+      - src/models/train_model.py
+      - data/features/features_taxi_fares.csv
+    outs:
+      - models/saved/linear_regression_taxi_fare.pkl
+
+  predict:
+    cmd: python src/models/predict_model.py
+    deps:
+      - src/models/predict_model.py
+      - models/saved/linear_regression_taxi_fare.pkl
+      - data/new_data/new_taxi_fares.csv
+    outs:
+      - data/predictions/predicted_fares.csv

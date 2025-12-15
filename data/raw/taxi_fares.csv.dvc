@@ -1,0 +1,5 @@
+outs:
+- md5: 2d4b8c73dac675d7e3e75f62532a0e01
+  size: 17804902
+  hash: md5
+  path: taxi_fares.csv

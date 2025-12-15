@@ -1,0 +1,54 @@
+schema: '2.0'
+stages:
+  build_features:
+    cmd: python src/features/build_features.py
+    deps:
+    - path: data/raw/taxi_fares.csv
+      hash: md5
+      md5: 2d4b8c73dac675d7e3e75f62532a0e01
+      size: 17804902
+    - path: src/features/build_features.py
+      hash: md5
+      md5: 4ca02bbc9a4b909475585a4fe560e60f
+      size: 2379
+    outs:
+    - path: data/features/features_taxi_fares.csv
+      hash: md5
+      md5: ad798e7977c2837c8861fd9d3bb399fa
+      size: 23044893
+  train_model:
+    cmd: python src/models/train_model.py
+    deps:
+    - path: data/features/features_taxi_fares.csv
+      hash: md5
+      md5: ad798e7977c2837c8861fd9d3bb399fa
+      size: 23044893
+    - path: src/models/train_model.py
+      hash: md5
+      md5: ce7c3668e5f5ccef3194693104720417
+      size: 2698
+    outs:
+    - path: models/saved/linear_regression_taxi_fare.pkl
+      hash: md5
+      md5: 37cac831c762f4dd16f4091bfe7bd88f
+      size: 961
+  predict:
+    cmd: python src/models/predict_model.py
+    deps:
+    - path: data/new_data/new_taxi_fares.csv
+      hash: md5
+      md5: 433f24da383a374a3c5ef5e4caa70079
+      size: 105
+    - path: models/saved/linear_regression_taxi_fare.pkl
+      hash: md5
+      md5: 37cac831c762f4dd16f4091bfe7bd88f
+      size: 961
+    - path: src/models/predict_model.py
+      hash: md5
+      md5: 6d541af9c55a473b407301f5a22cc023
+      size: 2504
+    outs:
+    - path: data/predictions/predicted_fares.csv
+      hash: md5
+      md5: f54744b818ee11e89e752c2a84df77be
+      size: 174

@@ -1,0 +1,15 @@
+# mlflow
+# scikit-learn
+# pandas
+# numpy
+# keras
+# tensorflow
+# hyperopt
+# dagshub
+# dvc
+# dvc-s3
+fastapi
+uvicorn[standard]
+# scikit-learn
+joblib
+pytest
